@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #fact-display {
+            background-color: #f9f9f9;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Interesting Cat Facts</h1>
+    </header>
+    <main>
+        <div id="fact-display">Click the button to see a cat fact!</div>
+        <button id="show-fact-btn">Show Random Fact</button>
+    </main>
+    <footer>
+        <p>&copy; 2023 Cat Facts</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const catFacts = [
+                { "fact": "Cats have five toes on their front paws, but only four toes on their back paws." },
+                { "fact": "A group of cats is called a clowder." },
+                { "fact": "Cats can rotate their ears 180 degrees." },
+                { "fact": "The average cat sleeps 12-16 hours a day." },
+                { "fact": "Cats have a specialized collarbone that allows them to always land on their feet." },
+                { "fact": "A cat's nose print is unique, much like a human's fingerprint." },
+                { "fact": "Cats have over 20 muscles that control their ears." },
+                { "fact": "The world's largest cat measured 48.5 inches long." },
+                { "fact": "Cats can make over 100 different sounds." },
+                { "fact": "A cat's whiskers are generally about the same width as its body." }
+            ];
+
+            const factDisplay = document.getElementById('fact-display');
+            const showFactBtn = document.getElementById('show-fact-btn');
+
+            showFactBtn.addEventListener('click', () => {
+                const randomIndex = Math.floor(Math.random() * catFacts.length);
+                factDisplay.textContent = catFacts[randomIndex].fact;
+            });
+        });
+    </script>
+</body>
+</html>
